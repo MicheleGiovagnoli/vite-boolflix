@@ -2,23 +2,21 @@
     <section class="main-container">
         <h1 v-show="showFilm()">Film</h1>
         <div class="film wrapper">
-            <AppCard v-for="(movie, i) in store.movie" :key="i" :movies="movie" />
+            <AppCard v-for="(movie, i) in store.movie" :key="i" :movies="movie" tipo="film" />
         </div>
         <h1 v-show="showSeries()">Tv Series</h1>
         <div class="series wrapper">
-            <AppCard_1 v-for="(serie, i) in store.tvSeries" :key="i" :series="serie" />
+            <AppCard v-for="(serie, i) in store.tvSeries" :key="i" :movies="serie" tipo="serie" />
         </div>
     </section>
 </template>
 <script>
 import { store } from '../store.js';
 import AppCard from './AppCard.vue';
-import AppCard_1 from './AppCard_1.vue';
 export default {
     nome: 'AppMain',
     components: {
         AppCard,
-        AppCard_1,
     },
     data() {
         return {
