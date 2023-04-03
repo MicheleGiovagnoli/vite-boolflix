@@ -48,7 +48,7 @@ export default {
           this.store.tvSeries = response.data.results;
           console.log(response.data.results);
         })
-    },
+    }
   },
   //FUNZIONI-AVVIO
   created() {
