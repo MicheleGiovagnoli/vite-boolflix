@@ -1,18 +1,22 @@
 <template>
     <section class="header-container">
         <h1>Boolflix</h1>
-        <AppSearch />
+        <div class="row">
+            <div>
+                <input type="text" placeholder="Search Film" v-model="store.searchText"
+                    @keyup.enter="$emit('performSearch')">
+            </div>
+            <div>
+                <button @click="$emit('performSearch')">Vai!</button>
+            </div>
+        </div>
     </section>
 </template>
 
 <script>
 import { store } from '../store.js';
-import AppSearch from './AppSearch.vue';
 export default {
     nome: 'AppHeader',
-    components: {
-        AppSearch,
-    },
     data() {
         return {
             store,
@@ -22,9 +26,16 @@ export default {
 </script>
 
 <style lang="scss">
+@use '../style/partials/variables' as*;
+@use '../style/partials/mixins';
+
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include mixins.d-flex-space-between;
+    background-color: $color-black;
+    color: $color-red;
+
+    .row {
+        display: flex;
+    }
 }
 </style>
