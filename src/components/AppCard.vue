@@ -1,24 +1,21 @@
 <template>
-    <div class="card">
-        <h4>Titolo :{{ title }}</h4>
-        <h4 v-show="title != original_title">Titolo Originale :{{ original_title }}</h4>
-        <h4>Lingua :{{ language }}</h4>
-        <h4>Voto :{{ vote }}</h4>
-    </div>
+    <ul class="card-film">
+        <li>Titolo :{{ movies.title }}</li>
+        <li v-show="movies.title != movies.original_title">Titolo Originale :{{ movies.original_title }}</li>
+        <li>Lingua :{{ movies.original_language }}</li>
+        <li>Voto :{{ movies.vote_average }}</li>
+    </ul>
 </template>
 <script>
 export default {
     nome: 'AppCard',
     props: {
-        title: String,
-        original_title: String,
-        language: String,
-        vote: Number,
+        movies: Object,
     },
 }
 </script>
 <style lang="scss">
-.card {
+.card-film {
     padding: 20px;
     border: black 1px solid;
     width: calc(100% / 6);
