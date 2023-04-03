@@ -1,20 +1,16 @@
 <template>
     <ul class="card">
         <li>
-            Titolo :
-            {{ tipo == 'film' ? movies.title : movies.name }}
+            Titolo :{{ tipo == 'film' ? movies.title : movies.name }}
         </li>
         <li v-show="movies.title != movies.original_title">
-            Titolo Originale :
-            {{ tipo == 'film' ? movies.original_title : movies.original_name }}
+            Titolo Originale :{{ tipo == 'film' ? movies.original_title : movies.original_name }}
         </li>
         <li>
-            Lingua :
-            <span :class="`fi fi-${flag(movies.original_language)}`"></span>
+            Lingua :<span :class="`fi fi-${flag(movies.original_language)}`"></span>
         </li>
         <li>
-            Voto :
-            {{ movies.vote_average }}
+            Voto :{{ movies.vote_average }}
         </li>
     </ul>
 </template>
