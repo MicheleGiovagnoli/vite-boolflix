@@ -10,6 +10,7 @@
 <script>
 import axios from 'axios';
 import { store } from './store.js';
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';

@@ -1,10 +1,10 @@
 <template>
     <section class="main-container">
-        <h1>Film</h1>
+        <h1 v-show="showFilm()">Film</h1>
         <div class="film wrapper">
             <AppCard v-for="(movie, i) in store.movie" :key="i" :movies="movie" />
         </div>
-        <h1>Tv Series</h1>
+        <h1 v-show="showSeries()">Tv Series</h1>
         <div class="series wrapper">
             <AppCard_1 v-for="(serie, i) in store.tvSeries" :key="i" :series="serie" />
         </div>
@@ -25,6 +25,22 @@ export default {
             store
         }
     },
+    methods: {
+        showFilm() {
+            let movies = false
+            if (this.store.movie.length > 0) {
+                movies = true
+            } else (movies = false)
+            return movies
+        },
+        showSeries() {
+            let series = false
+            if (this.store.tvSeries.length > 0) {
+                series = true
+            } else (series = false)
+            return series
+        }
+    }
 }
 </script>
 <style lang="scss">
