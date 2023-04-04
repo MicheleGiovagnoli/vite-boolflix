@@ -32,7 +32,7 @@ export default {
             return val
         },
         vote(vote_average) {
-            let numero = Math.floor(vote_average)
+            let numero = Math.ceil(vote_average)
             let array = [];
             for (let i = 0; i <= numero; i++) {
                 array.push(numero);
