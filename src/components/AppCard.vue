@@ -10,7 +10,8 @@
             Lingua :<span :class="`fi fi-${flag(movies.original_language)}`"></span>
         </li>
         <li>
-            Voto :{{ vote(movies.vote_average) }}
+            Voto :<i class="fa-solid fa-star" v-for="(star, i) in vote(movies.vote_average)" :key="i"></i>
+            <i class="fa-regular fa-star" v-for="(star, i) in 5 - vote(movies.vote_average)" :key="i"></i>
         </li>
         <img :src="`https://image.tmdb.org/t/p/w300/${this.movies.poster_path}`" alt="img">
     </ul>
