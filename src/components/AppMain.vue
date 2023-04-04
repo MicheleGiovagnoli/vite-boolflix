@@ -8,6 +8,7 @@
         <div class="series wrapper">
             <AppCard v-for="(serie, i) in store.tvSeries" :key="i" :movies="serie" tipo="serie" />
         </div>
+        <h1 v-if="showFilm() == false">Cerca un film o una serie tv..</h1>
     </section>
 </template>
 <script>
@@ -29,6 +30,7 @@ export default {
             if (this.store.movie.length > 0) {
                 movies = true
             } else (movies = false)
+            console.log(movies);
             return movies
         },
         showSeries() {
@@ -36,6 +38,7 @@ export default {
             if (this.store.tvSeries.length > 0) {
                 series = true
             } else (series = false)
+            console.log(series);
             return series
         }
     }

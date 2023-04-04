@@ -10,8 +10,9 @@
             Lingua :<span :class="`fi fi-${flag(movies.original_language)}`"></span>
         </li>
         <li>
-            Voto :{{ movies.vote_average }}
+            Voto :{{ vote(movies.vote_average) }}
         </li>
+        <img :src="`https://image.tmdb.org/t/p/w300/${this.movies.poster_path}`" alt="img">
     </ul>
 </template>
 <script>
@@ -28,6 +29,23 @@ export default {
                 return 'gb'
             }
             return val
+        },
+        vote(vote_average) {
+            let numero = Math.floor(vote_average)
+            let array = [];
+            for (let i = 0; i <= numero; i++) {
+                array.push(numero);
+                numero -= 1;
+            }
+            let test = array.length - 1;
+            console.log(array);
+            console.log(numero);
+            console.log(array[test]);
+            return array[test];
+        }
+    },
+    data() {
+        return {
         }
     }
 }
@@ -38,5 +56,9 @@ export default {
     border: black 1px solid;
     width: calc(100% / 6);
     min-height: 300px;
+
+    img {
+        width: 100%;
+    }
 }
 </style>
