@@ -27,11 +27,11 @@ html {
 }
 
 .scroll::-webkit-scrollbar-thumb {
-    background-color: $color-red;
+    background-color: $color-red-op;
     border-radius: 10px;
     border: solid $color-black 1px;
 
     &:hover {
-        background-color: $color-red-op;
+        background-color: $color-red;
     }
 }

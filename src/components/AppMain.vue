@@ -4,7 +4,7 @@
         <div class="film wrapper scroll">
             <AppCard v-for="(movie, i) in store.movie" :key="i" :movies="movie" tipo="film" />
         </div>
-        <h1 v-show="showSeries()">Tv SERIES</h1>
+        <h1 v-show="showSeries()">TV SERIES</h1>
         <div class="series wrapper scroll">
             <AppCard v-for="(serie, i) in store.tvSeries" :key="i" :movies="serie" tipo="serie" />
         </div>
@@ -54,13 +54,14 @@ export default {
     background-color: $color-primary;
     scrollbar-face-color: $color-black;
     color: $color-white;
+    padding-top: 70px;
 
     h1 {
-        padding: 10px
+        padding: 20px 0px 0px 10px
     }
 }
 
 .wrapper {
-    @include mixins.d-flex-space-between;
+    display: flex;
 }
 </style>

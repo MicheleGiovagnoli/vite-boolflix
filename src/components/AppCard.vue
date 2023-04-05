@@ -1,15 +1,15 @@
 <template>
     <div class="wrapper-card">
         <div class="card"
-            :style="{ backgroundImage: `url(${'https://image.tmdb.org/t/p/w300/' + this.movies.poster_path})` }">
+            :style="{ backgroundImage: `url(${'https://image.tmdb.org/t/p/w342/' + this.movies.poster_path})` }">
             <ul class="card-info scroll">
                 <li>
                     <h3>Titolo :</h3>
-                    {{ tipo == 'film' ? movies.title : movies.name }}
+                    <span>{{ tipo == 'film' ? movies.title : movies.name }}</span>
                 </li>
                 <li v-show="movies.title != movies.original_title">
                     <h3>Titolo Originale :</h3>
-                    {{ tipo == 'film' ? movies.original_title : movies.original_name }}
+                    <span>{{ tipo == 'film' ? movies.original_title : movies.original_name }}</span>
                 </li>
                 <li>
                     <h3>Lingua :</h3>
@@ -22,7 +22,7 @@
                 </li>
                 <li>
                     <h3>Overview :</h3>
-                    {{ movies.overview }}
+                    <span>{{ movies.overview }}</span>
                 </li>
             </ul>
         </div>
@@ -72,7 +72,7 @@ export default {
     padding: 0px 5px;
 
     .card {
-        width: 300px;
+        width: 342px;
         height: 500px;
         background-repeat: no-repeat;
         background-size: cover;
@@ -86,8 +86,16 @@ export default {
             color: white;
             visibility: hidden;
             height: 500px;
-
             list-style: none;
+            padding: 10px;
+
+            span {
+                padding: 5px;
+            }
+
+            h3 {
+                padding: 5px 0px;
+            }
 
             .fa-star {
                 color: goldenrod;
