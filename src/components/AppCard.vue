@@ -1,24 +1,30 @@
 <template>
     <div class="wrapper-card">
         <div class="card"
-            :style="{ backgroundImage: `url(${'https://image.tmdb.org/t/p/w200/' + this.movies.poster_path})` }">
-            <div class="card-info">
-                <ul>
-                    <li>
-                        Titolo :{{ tipo == 'film' ? movies.title : movies.name }}
-                    </li>
-                    <li v-show="movies.title != movies.original_title">
-                        Titolo Originale :{{ tipo == 'film' ? movies.original_title : movies.original_name }}
-                    </li>
-                    <li>
-                        Lingua :<span :class="`fi fi-${flag(movies.original_language)}`"></span>
-                    </li>
-                    <li>
-                        Voto :<i class="fa-solid fa-star" v-for="(star, i) in vote(movies.vote_average)" :key="i"></i>
-                        <i class="fa-regular fa-star" v-for="(star, i) in 5 - vote(movies.vote_average)" :key="i"></i>
-                    </li>
-                </ul>
-            </div>
+            :style="{ backgroundImage: `url(${'https://image.tmdb.org/t/p/w300/' + this.movies.poster_path})` }">
+            <ul class="card-info scroll">
+                <li>
+                    <h3>Titolo :</h3>
+                    {{ tipo == 'film' ? movies.title : movies.name }}
+                </li>
+                <li v-show="movies.title != movies.original_title">
+                    <h3>Titolo Originale :</h3>
+                    {{ tipo == 'film' ? movies.original_title : movies.original_name }}
+                </li>
+                <li>
+                    <h3>Lingua :</h3>
+                    <span :class="`fi fi-${flag(movies.original_language)}`"></span>
+                </li>
+                <li>
+                    <h3>Voto :</h3>
+                    <i class="fa-solid fa-star" v-for="(star, i) in vote(movies.vote_average)" :key="i"></i>
+                    <i class="fa-regular fa-star" v-for="(star, i) in 5 - vote(movies.vote_average)" :key="i"></i>
+                </li>
+                <li>
+                    <h3>Overview :</h3>
+                    {{ movies.overview }}
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -58,26 +64,33 @@ export default {
 }
 </script>
 <style lang="scss">
+@use '../style/general.scss';
+@use '../style/partials/variables' as*;
+@use '../style/partials/mixins';
+
 .wrapper-card {
-    width: calc((100% / 6) - 10px);
+    padding: 0px 5px;
 
     .card {
-        min-height: 300px;
-        transition: all 3s ease;
+        width: 300px;
+        height: 500px;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         &:hover .card-info {
-            display: block;
-            background-color: black;
+            visibility: visible;
+            background-color: $color-primary;
         }
 
         .card-info {
-            color: red;
-            display: none;
-            height: 300px;
-            transition: all 3s ease;
+            color: white;
+            visibility: hidden;
+            height: 500px;
 
-            ul {
-                list-style: none;
+            list-style: none;
+
+            .fa-star {
+                color: goldenrod;
             }
         }
     }

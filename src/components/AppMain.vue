@@ -1,11 +1,11 @@
 <template>
     <section class="main-container">
-        <h1 v-show="showFilm()">Film</h1>
-        <div class="film wrapper">
+        <h1 v-show="showFilm()">FILM</h1>
+        <div class="film wrapper scroll">
             <AppCard v-for="(movie, i) in store.movie" :key="i" :movies="movie" tipo="film" />
         </div>
-        <h1 v-show="showSeries()">Tv Series</h1>
-        <div class="series wrapper">
+        <h1 v-show="showSeries()">Tv SERIES</h1>
+        <div class="series wrapper scroll">
             <AppCard v-for="(serie, i) in store.tvSeries" :key="i" :movies="serie" tipo="serie" />
         </div>
         <h1 v-if="showFilm() == false">Cerca un film o una serie tv..</h1>
@@ -45,10 +45,22 @@ export default {
 }
 </script>
 <style lang="scss">
+@use '../style/general.scss';
+@use '../style/partials/variables' as*;
 @use '../style/partials/mixins';
+
+
+.main-container {
+    background-color: $color-primary;
+    scrollbar-face-color: $color-black;
+    color: $color-white;
+
+    h1 {
+        padding: 10px
+    }
+}
 
 .wrapper {
     @include mixins.d-flex-space-between;
-    @include mixins.d-flex-wrap;
 }
 </style>

@@ -1,5 +1,37 @@
+@use '../style/partials/variables' as*;
+@use '../style/partials/mixins';
+
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    height: 100vh;
+    background-color: $color-primary;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+.scroll::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: $color-primary;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: $color-red;
+    border-radius: 10px;
+    border: solid $color-black 1px;
+
+    &:hover {
+        background-color: $color-red-op;
+    }
 }
